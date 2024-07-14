@@ -1,130 +1,144 @@
 :root {
-  /* change the values below to your colors from your palette */
   --primary-color: #77878b;
   --secondary-color: #305252;
   --accent1-color: #373e40;
   --accent2-color: #488286;
-
-  /* change the values below to your chosen font(s) */
   --heading-font: "Roboto";
   --paragraph-font: Roboto, Helvetica, sans-serif;
-
-  /* these colors below should be chosen from among your palette colors above */
   --headline-color-on-white: #77878b;  /* headlines on a white background */ 
   --headline-color-on-color: #373e40; /* headlines on a colored background */ 
   --paragraph-color-on-white: #77878b; /* paragraph text on a white background */ 
   --paragraph-color-on-color: #373e40; /* paragraph text on a colored background */ 
-  --paragraph-background-color: #77878b  ;
-  --nav-link-color: #77878b;
-  --nav-background-color: #305252;
+  --paragraph-background-color: #77878b;
+  --nav-link-color: white;
+  --nav-background-color: rgb(48, 82, 82, 200);
   --nav-hover-link-color: #373e40;
   --nav-hover-background-color: #77878b;
 }
 
-
-/*  Look around below...but DON'T CHANGE ANYTHING! */
-
 body {
   max-width: 1920px;
-  margin: 0;
+  margin: 0 auto; /* Ensure body is centered */
   padding: 0;
   font-size: 22px;
   text-align: center;
   background-color: #77878b;
 }
+
+header, nav {
+  position: relative;
+  z-index: 1;
+}
+
 img {
   display: block;
   margin: 0 auto;
   max-width: 300px;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
   color: var(--headline-color-on-white);
 }
+
 h2 {
   text-align: center;
   margin: 0;
 }
+
 hr {
   height: 3px;
   margin: 35px 0;
   background: var(--accent1-color);
 }
+
 header {
   padding: 1em;
   text-align: center;
   color: var(--headline-color-on-color);
-  background-color: var(--paragraph-background-color);
-  background-color: #77878b;
+  background-color: rgba(48, 82, 82, 0.4);
+  display: grid;
+  grid-template-columns: 150px auto;
+  position: relative;
+  z-index: 2;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  background-color: transparent; 
+  height: 125px;
 }
+
 header > h1, header > h2 {
   color: var(--headline-color-on-color);
 }
+
 p {
   font-family: var(--paragraph-font);
   color: var(--paragraph-color-on-white);
   padding: 1em;
 }
+
 .colors {
   width: 100%;
   min-width: 350px;
   margin: 30px auto;
   text-align: center;
 }
+
 .colors th {
   background-color: #999;
 }
-.colors td{
+
+.colors td {
   width: 25%;
   height: 3em;
 }
+
 .primary {
   background-color: var(--primary-color);
 }
+
 .secondary {
   background-color: var(--secondary-color);
 }
+
 .accent1 {
   background-color: var(--accent1-color);
 }
-.accent2{
+
+.accent2 {
   background-color: var(--accent2-color);
 }
+
 p.colored {
   background-color: var(--paragraph-background-color);
   color: var(--paragraph-color-on-color);
 }
+
 nav {
-  background-color: var(--nav-background-color);
+  background-color: rgba(48, 82, 82, 0.4);
   line-height: 2em;
   text-align: center;
   font-size: 1.2em;
   list-style-type: none;
   display: flex;
-
+  justify-content: space-around;
 }
+
 nav a {
   min-width: 120px;
   text-decoration: none;
   padding: 35px;
-  color: #305252;
-  text-decoration: none;
-  text-align: center;
-  margin: auto;
-}
-nav a:link, nav a:visited {
   color: var(--nav-link-color);
 }
+
 nav a:hover {
   color: var(--nav-hover-link-color);
   background-color: var(--nav-hover-background-color);
-  color: #305252;
-  background-color: #77878b;
 }
+
 .sitemap {
   display: grid;
   justify-content: center;
-
   grid-template-columns: repeat(6, 15%);
   grid-template-rows: 3em 1.5em 1.5em 3em;
   grid-template-areas: ". . home home . ."
@@ -132,56 +146,88 @@ nav a:hover {
     ". left left right right ."
     "page2 page2 . . page3 page3";
 }
+
 .sitemap > div {
   text-align: center;
 }
+
 .sm-home {
   grid-area: home;
   background-color: #ccc;
   line-height: 3em;
 }
+
 .sm-page2 {
   grid-area: page2;
   background-color: #ccc;
   line-height: 3em;
 }
+
 .sm-page3 {
   grid-area: page3;
   background-color: #ccc;
   line-height: 3em;
 }
+
 .top {
   grid-area: top;
   border-left: 1px solid;
 }
+
 .left {
   grid-area: left;
   border-top: 1px solid;
   border-left: 1px solid;
 }
+
 .right {
   grid-area: right;
   border-top: 1px solid;
   border-right: 1px solid;
 }
+
 #content {
-  max-width: 1600px;
-  margin: 0 auto;
+  max-width: 1920px;
+  margin: 0 auto; /* Center content */
+  text-align: center;
+  justify-content: center;
 }
+
 #hero-msg h1, #hero-msg h4 {
   text-align: center;
-  color: #305252;
+  color: white;
 }
+
+#hero {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 5fr;
+  margin-top: 0px;
+  background: url('images/hero.png') no-repeat center center/cover;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero-msg h4 {
+  color: white;
+}
+
+#hero-msg {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  margin-top: 0px;
+}
+
 .button-box {
   text-align: center;
 }
-main section {
+
+section {
   text-align: center;
 }
-#background {
-  height: 100px;
-  background-color: #77878b;
-}
+
 .book, .join {
   background-color: #77878b;
   color: #305252;
@@ -189,63 +235,199 @@ main section {
   font-size: 18px;
   padding: 15px 30px;
   margin-top: 50px;
+  border-radius: 10px;
 }
+
 .book:hover, .join:hover {
   background-color: #77878b;
   color: #305252;
 }
+
+#background {
+  display: grid;
+  height: 600px;
+  background-color: #305252;
+  grid-template-columns: repeat(8, 1fr); 
+  grid-template-rows: 100px 50px 300px 50px 100px; 
+  grid-column: 1 / 11; 
+  grid-row: 4 / 9; 
+}
+
 .msg {
-  background-color: #77878b;
   line-height: 1.5em;
-  padding: 35px;
+  grid-row: 3 / 4;
+  grid-column: 5 / 8;
 }
+
 footer {
-  background-color: #77878b;
-  color: #305252;
+  background-color: #305252;
+  color: #77878b;
   padding: 25px 50px;
-  margin-top: 0px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 25px 15px;
+}
+
 .home-title {
   color: #305252;
   font-size: 2em;
   margin-top: 10px;
 }
+
 .msg h2 {
   color: #305252;
 }
+
 .msg p {
   color: #305252;
   font-size: 0.8em;
   padding-bottom: 15px;
 }
+
 footer a {
-  color: #305252;
+  color: #77878b;
   text-decoration: none;
+  position: static;
 }
+
 footer a:hover {
-  color: #305252;
+  color: #77878b;
 }
+
 .logo {
-  width: 80px
+  width: 80px;
 }
+
 .icon {
-  width: 80px
+  width: 80px;
 }
+
 #hero-img {
   width: 100%;
+  z-index: -1;
+  object-fit: cover;
 }
+
 footer p {
   font-size: 1.3em;
-}  
+}
+
 footer p a:hover {
   text-decoration: underline;
-}  
+}
+
 #logo_link {
   padding-top: 5px;
+  justify-self: center;
+  align-self: center;
 }
+
 footer .social img {
   padding-top: 15px;
+  display: flex;
 }
+
 .rivers-card, .camping-card, .rapids-card {
   margin: 200px 0;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  max-width: 1920px; 
+  margin: 0 auto;
+}
+
+.card-img, .mountains {
+  width: 100%;
+}
+
+.rivers-card {
+  grid-column: 2 / 4;
+  grid-row: 2 / 3;
+}
+
+.camping-card {
+  grid-column: 5 / 7;
+  grid-row: 2 / 3;
+}
+
+.rapids-card {
+  grid-column: 8 / 10;
+  grid-row: 2 / 3;
+}
+
+.mountains {
+  box-shadow: 5px 5px 10px #6f7364;
+  grid-row: 2 / 5;
+  grid-column: 2 / 6; 
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.msg {
+  background-color: #6f7364;
+  padding: 35px;
+  box-shadow: 5px 5px 10px #6f7364;
+  z-index: 1;
+}
+
+.card-img {
+  border: 10px solid #d9c2a3;
+  transition: transform .5s;
+  box-shadow: 5px 5px 10px #6f7364;
+}
+
+.card-img:hover {
+  opacity: .6;
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 900px) {
+  #hero, .home-grid {
+    display: block;
+    height: auto;
+  }
+  nav, footer {
+    flex-direction: column;
+  }
+  nav a {
+    display: block;
+    padding: 15px;
+  }
+  #hero {
+    margin-top: 0;
+  }
+  #hero-msg {
+    margin-top: 0;
+  }
+  #hero-msg h4 {
+    display: none;
+  }
+  #hero-msg h1 {
+    color: #6f7364;
+  }
+  .home-title {
+    font-size: 25px;
+  }
+  .rivers-card, .camping-card, .rapids-card { 
+    margin: 50px auto;
+    width: 60%;
+  }
+  .mountains, .msg {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+  }
+  footer {
+    margin-top: 25px;
+  }
 }
